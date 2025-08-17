@@ -1,0 +1,31 @@
+package condtional_statement;
+
+import java.util.Scanner;
+
+public class Eligibiltyage_demo 
+{
+	public void getvaildage(int age)
+	{
+		if(age<18)
+		{
+			System.out.println(age+" Sorry!! you are not eligible");
+		}
+		else if(age>=18&age<=60)
+		{
+			System.out.println(age+" You are elligible");
+		}
+		else
+		{
+			System.out.println(age+" You are retired!!");
+		}
+		}
+	public static void main(String[] args) 
+	{
+		Eligibiltyage_demo ob=new Eligibiltyage_demo();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter your age");
+		int age=sc.nextInt();
+		ob.getvaildage(age);
+		
+	}
+}

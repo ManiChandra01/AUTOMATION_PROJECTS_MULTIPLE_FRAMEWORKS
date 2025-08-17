@@ -1,0 +1,53 @@
+package condtional_statement;
+
+import java.util.Scanner;
+
+public class Switch_demo 
+{
+	public void vowelfind(char input)
+	{
+		switch (input)
+		{
+		case 'a':
+		{
+			System.out.println("The entered charactor is vowel ");
+			break;
+		}
+		
+		case 'e':
+		{
+		System.out.println("The entered charactor is vowel ");
+		break;
+		}
+		case 'i':
+		{
+		System.out.println("The entered charactor is vowel ");
+		break;
+		}
+		case 'o':
+		{
+		System.out.println("The entered charactor is vowel ");
+		break;
+		}
+		case 'u':
+		{
+		System.out.println("The entered charactor is vowel ");
+		break;
+		}
+		default:
+		{
+			System.out.println("The enter charactor are consonants ");
+		}
+		}
+	}
+	public static void main(String[] args) {
+		{
+			Switch_demo ob=new Switch_demo();
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter the Charactor");
+			char input=sc.next().charAt(0);
+			ob.vowelfind(input);			
+		}
+	}
+
+}

@@ -1,0 +1,56 @@
+package condtional_statement;
+
+import java.util.Scanner;
+
+public class day_in_a_week 
+{
+	public void getweekdetails(int w) 
+	{
+		if(w==1) 
+		{
+			System.out.println("1st day in a week is Monday");
+		}
+		else if(w==02)
+		{
+			System.out.println("2nd day in a week is Tuesday");			
+		}
+		else if(w==03)
+		{
+			System.out.println("3rd day in a week is Wednesday");
+		}
+		else if(w==04)
+		{
+			System.out.println("4th day in a week is Thursday");			
+		}
+		else if(w==05)
+		{
+			System.out.println("5th day in a week is friday");			
+		}
+		else if(w==06)
+		{
+			System.out.println("6th day in a week is saturday");
+		}
+		else if(w==0)
+		{
+			System.out.println("Sunday is a holiday day in a week");			
+		}
+		else 
+			System.out.println("You are entered invail input please try again !!");
+	
+		
+	}
+	public static void main(String[] args)
+	{
+		day_in_a_week ob=new day_in_a_week();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Entered the no. of day ");
+		int w=sc.nextInt();
+		ob.getweekdetails(w);
+		
+		
+		
+		
+		
+	}
+
+}

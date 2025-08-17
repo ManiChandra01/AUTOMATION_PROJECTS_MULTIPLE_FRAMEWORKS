@@ -1,0 +1,44 @@
+package my_java_class;
+
+import java.util.Scanner;
+
+public class Vishal_mega_mart_Billing_demo 
+{
+	public void getDetails()
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the customer Name ");
+		String Name=sc.next();
+		System.out.println("Enter the customer mobile No. ");
+		long mobile=sc.nextLong();
+		System.out.println("Enter the product ID ");
+		int id=sc.nextInt();
+		System.out.println("Enter the product name ");
+		String product=sc.next();
+		System.out.println("Enter the product price ");
+		float price=sc.nextFloat();
+		
+		float gst=(price*18)/100;
+		float Total=(price+gst);
+		
+		System.out.println("Custmer Name :"+Name);
+		System.out.println("Customer Mobile No. :"+mobile);
+		System.out.println("Product id :"+id);
+		System.out.println("Product Name:"+product);
+		System.out.println("Product Price :"+price);
+		System.out.println("-------------------------------------");
+		System.out.println("GST 18% :"+gst);
+		System.out.println("-------------------------------------");
+		System.out.println("Total Payable Amount is :"+Total);
+		
+	}
+	public static void main(String[] args)
+	{
+		Vishal_mega_mart_Billing_demo ob=new Vishal_mega_mart_Billing_demo();
+		ob.getDetails();
+		
+	}
+	
+	
+
+}

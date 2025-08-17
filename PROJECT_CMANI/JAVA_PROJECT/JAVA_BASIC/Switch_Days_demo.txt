@@ -1,0 +1,67 @@
+package condtional_statement;
+
+import java.util.Scanner;
+
+public class Switch_Days_demo 
+{
+	public void daysdemo(String input)
+	{
+		switch (input)
+		{
+		case "sunday":
+		{
+			System.out.println("Sunday is the Holiday ");
+			break;
+		}
+		case "monday":
+		{
+			System.out.println("Monday is th first day of week ");
+			break;
+		}
+		case "tuesday":
+		{
+			System.out.println("Tuesday is the second day of week");
+			break;
+		}
+		case "wednesday":
+		{
+			System.out.println("Wednesday is the third day of week");
+			break;
+		}
+		case "thursday":
+		{
+			System.out.println("Thursday is the fourth day of week");
+			break;
+		}
+		case "friday":
+		{
+			System.out.println("Friday is the fifth day of week");
+			break;
+		}
+		case "saturday":
+		{
+			System.out.println("Saturday is the sixth day of week");
+			break;
+		}
+		default:
+		{
+			System.out.println("This is the invalid input");
+		}
+		
+		}
+		
+	}
+	public static void main(String[] args) 
+	
+	{
+		Switch_Days_demo ob=new Switch_Days_demo();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Entered the name of days ");
+		String input=sc.next();
+		ob.daysdemo(input);
+		
+		
+		
+	}
+
+}

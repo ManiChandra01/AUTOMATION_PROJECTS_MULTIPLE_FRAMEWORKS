@@ -1,0 +1,12 @@
+package my_java_class;
+
+public class Subtraction_demo {
+	public static void main(String[] args) {
+		int a=50;
+		int b=40;
+		int c=5;
+		int d=a-(b+c);
+		System.out.println("Subtraction of three No. ="+d);
+	}
+
+}

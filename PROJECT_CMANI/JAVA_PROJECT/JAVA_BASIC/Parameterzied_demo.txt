@@ -1,0 +1,45 @@
+package my_java_class;
+
+import java.util.Scanner;
+
+public class Parameterzied_demo
+{
+	public float add(float a,float b)
+	{
+		float c=a+b;
+		return c;	
+	}
+	public float sub(float a,float b)
+	{
+		float c=a-b;
+		return c;	
+	}
+	public float mul(float a,float b)
+	{
+		float c=a*b;
+		return c;	
+	}
+	public float div(float a,float b)
+	{
+		float c=a/b;
+		return c;	
+	}
+	public static void main(String[] args) 
+	{
+		Parameterzied_demo ob=new Parameterzied_demo();
+		Scanner sc =new Scanner(System.in);
+		System.out.println("Enter the two Variable ");
+		float firstvalue=sc.nextFloat();
+		float secondvalue=sc.nextFloat();
+		float out=ob.add(firstvalue,secondvalue);
+		float out1=ob.sub(firstvalue,secondvalue);
+		float out2=ob.mul(firstvalue,secondvalue);
+		float out3=ob.div(firstvalue,secondvalue);
+		
+		System.out.println("Addition is "+out);
+		System.out.println("Substration is "+out1);
+		System.out.println("Multipilication is "+out2);
+		System.out.println("Divion is "+out3);
+		
+	}
+}

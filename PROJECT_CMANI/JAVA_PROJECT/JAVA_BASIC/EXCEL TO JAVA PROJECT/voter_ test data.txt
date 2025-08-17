@@ -1,0 +1,174 @@
+package excelutility;
+
+import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class Voting_testdemo 
+{ 
+	public void getdetails() 
+	{
+		String path="";
+		try 
+		{
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Please enter the Name ");
+			String name =sc.next();
+			System.out.println("please enter the Age");
+			int age = sc.nextInt();
+			if(age<18)
+			{
+				throw new Exception("||You are not eligible to voting|| \n"+" Okay!! Try again with new user");	
+			}
+			else
+			{
+				System.out.println("Please enter the choice for addhar-1 \n"+"for voterID press-2");
+				
+			}
+			int votinginput=sc.nextInt();
+			if (votinginput==1)
+			{
+				System.out.println("Please enter the addahr card number");
+				String Addharno =sc.next();
+				boolean flag=false;
+				ArrayList<String>data=getReaddata(1);
+				for (String dd:data) 
+				{
+					if (dd.equals(Addharno)) 
+					{
+						flag = true;
+						System.out.println("Your Entered Addhar number is our record");
+						System.out.println("Please Enter the choice for the congress party-1  \n"+"AAP party-2 \n"
+								+"BJP party-03 \n"+"Nota-04");
+								int choice=sc.nextInt();
+								if (choice==1) 
+								{
+									System.out.println("Your vote is sucessfull on congress party !!Thank for voting!!");
+								}
+								else if (choice==2)
+								{
+									System.out.println("Your vote is sucessfull on AAP party !!Thank for voting!!");	
+								}
+								else if (choice==3)
+								{
+									System.out.println("Your vote is sucessfull on BJP party !!Thank for voting!!");	
+								}
+								else if (choice==4)
+								{
+									System.out.println("Your vote is sucessfull on NOTA !!Thank for voting!!");	
+								}
+								else
+								{
+									System.out.println("Sorry you are choice in not correct.Please try agein..");
+									throw new Exception("Your choice is not vaid");
+					            }
+					}
+				}
+					if(flag==false)
+					{
+						System.out.println("Sorry your Addhar not our record");
+						throw new Exception("!!Data not found!! please try again");
+					}
+				}
+			else if(votinginput==2)
+			{
+							System.out.println("Please enter the VoterID card number");
+							String VoterID =sc.next();
+							boolean flag1=false;
+							ArrayList<String>data1=getReaddata(1);
+							for (String cc:data1) 
+							{
+								if (cc.equals(VoterID)) 
+								{
+									flag1 = true;
+									System.out.println("Your Entered VoterID is our record");
+									System.out.println("Please Enter the choice for the congress party-1  \n"+"AAP party-2 \n"
+											+"BJP party-03 \n"+"Nota-04");
+											int choice=sc.nextInt();
+											if (choice==1) 
+											{
+												System.out.println("Your vote is sucessfull on congress party !!Thank for voting!!");
+											}
+											else if (choice==2)
+											{
+												System.out.println("Your vote is sucessfull on AAP party !!Thank for voting!!");	
+											}
+											else if (choice==3)
+											{
+												System.out.println("Your vote is sucessfull on BJP party !!Thank for voting!!");	
+											}
+											else if (choice==4)
+											{
+												System.out.println("Your vote is sucessfull on NOTA !!Thank for voting!!");	
+											}
+											else
+											{
+												System.out.println("Sorry you are choice in not correct.Please try agein..");
+												throw new Exception("Your choice is not vaid");
+											}
+											
+								}
+								if(flag1==false)
+								{
+									System.out.println("Sorry your VoterID our record");
+									throw new Exception("!!Data not found!! please try again");
+								}
+					}
+			}
+			else
+			{
+				System.out.println("You are enter incorrect input \n"+"Please Enter the correct input");
+				throw new Exception("Your choice is not vaid");
+			}
+		
+	}
+		catch (Exception e)
+		{
+			}
+		}
+		
+		public static ArrayList<String>getReaddata(int choice)
+		    {
+			ArrayList<String>Value=new ArrayList<String>();
+			try
+			{
+				String path="C:\\Users\\Tajinder\\eclipse-workspace\\myclass_room\\testdata\\testdata_2023.xlsx";
+				
+				FileInputStream fis = new FileInputStream(path);
+				XSSFWorkbook wb = new XSSFWorkbook(fis);
+				XSSFSheet sheet = wb.getSheetAt(0);
+				if(choice==1)
+				{
+					for (int i=0;i<=20;i++)
+					{
+						Value.add(sheet.getRow(i).getCell(0).getStringCellValue());
+					}
+				}
+				else
+					{
+					for (int i=1;i<=20;i++) 
+						{
+						Value.add(sheet.getRow(i).getCell(1).getStringCellValue());	
+						}
+						
+					}		
+			
+			}
+			catch (Exception e) 
+			{ 	
+			}
+			return Value;
+   }
+		public static void main(String[] args) 
+		{
+			Voting_testdemo ob=new Voting_testdemo();
+			ob.getClass();	
+		}
+				
+	}
+	
+
+

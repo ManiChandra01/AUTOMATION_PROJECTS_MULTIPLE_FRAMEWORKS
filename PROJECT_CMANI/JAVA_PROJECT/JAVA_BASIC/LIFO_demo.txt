@@ -1,0 +1,31 @@
+package Array_Class;
+
+import java.util.Scanner;
+
+public class LIFO_demo {
+	
+	public void getlifo() {
+		
+		int a[]=new int[5];
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the five input");
+		for (int i=0;i<=4;i++) {
+			
+			a[i]=sc.nextInt();
+			
+			}
+		System.out.println("The LIFO numbers are printed below");
+		for (int j=4;j>=0;j--) {
+			
+			System.out.println(a[j]);
+			
+		}	
+
+	}
+	public static void main(String[] args) {
+		
+		LIFO_demo ob=new LIFO_demo();
+		ob.getlifo();
+	}
+
+}

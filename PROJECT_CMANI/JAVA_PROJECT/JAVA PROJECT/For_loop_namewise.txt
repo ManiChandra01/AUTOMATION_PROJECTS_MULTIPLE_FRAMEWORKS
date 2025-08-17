@@ -1,0 +1,25 @@
+package condtional_statement;
+
+import java.util.Scanner;
+
+public class For_loop_namewise 
+{
+	public void getname(int num)
+	{
+		for (int num1=0;num1<=10;num1++)
+		{
+			System.out.println(num1);
+		}
+		
+	}
+	public static void main(String[] args)
+	{
+		For_loop_namewise ob=new For_loop_namewise();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Numbers ");
+		int num=sc.nextInt();
+		ob.getname(num);
+		
+	}
+
+}

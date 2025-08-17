@@ -1,0 +1,97 @@
+package condtional_statement;
+
+import java.util.Scanner;
+
+public class Switch_month_demo 
+{
+	Scanner sc=new Scanner(System.in);
+	public void getdays(String input)
+	{
+		switch (input)
+		{
+		case"January":
+		{
+			System.out.println("31 days in January");
+		}
+		case"February":
+		{
+			System.out.println("Please enter the year ");
+			int year=sc.nextInt();
+			if (year%4==0) {
+				System.out.println("29 days in february");
+			}
+			else 
+			{
+				System.out.println("28 days in february");
+			}
+			break;
+		}
+		case"March":
+		{
+			System.out.println("31 days in March");
+			break;
+		}
+		case"April":
+		{
+			System.out.println("30 days in April");
+			break;
+		}
+		case"May":
+		{
+			System.out.println("31 days in May");
+			break;
+		}
+		case"June":
+		{
+			System.out.println("30 days in june");
+			break;
+		}
+		case"July":
+		{
+			System.out.println("30 days in july");
+			break;
+		}
+		case"August":
+		{
+			System.out.println("31 days in August");
+			break;
+		}
+		case"September":
+		{
+			System.out.println("30 days in April");
+			break;
+		}
+		case"October":
+		{
+			System.out.println("31 days in October");
+			break;
+		}
+		case"November":
+		{
+			System.out.println("30 days in November");
+			break;
+		}
+		case"December":
+		{
+			System.out.println("31 days in December");
+			break;
+		}
+		default :
+		{
+			System.out.println("Invalid input");
+		}
+		}
+		
+	}
+	public static void main(String[] args) 
+	{
+		Switch_month_demo ob= new Switch_month_demo();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the month");
+		String input=sc.next();
+		ob.getdays(input);
+		
+		
+	}
+
+}

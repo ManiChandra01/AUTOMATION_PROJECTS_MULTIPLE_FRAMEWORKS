@@ -1,0 +1,53 @@
+package my_java_class;
+
+import java.util.Scanner;
+
+public class Markssheet_demo
+{
+	public void getDetails() 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the Student Name");
+		String Name=sc.next();
+		System.out.println("Enter the Father Name");
+		String Father=sc.next();
+		System.out.println("Enter the College Name ");
+		String College=sc.next();
+		System.out.println("Enter the Roll No");
+		float Roll=sc.nextFloat();
+		System.out.println("Enter the Hindi Marks");
+		float Hindi=sc.nextFloat();
+		System.out.println("Enter the English Marks");
+		float English=sc.nextFloat();
+		System.out.println("Enter the Physics Marks");
+		float Physics=sc.nextFloat();
+		System.out.println("Enter the Chemistry Marks");
+		float Chemistry=sc.nextFloat();
+		System.out.println("Enter the Mathe Marks");
+		float Mathes=sc.nextInt();
+		
+		float Total=(Hindi+English+Physics+Chemistry+Mathes);
+		float Percentage=(Total/500)*100;
+		
+		System.out.println("Student name is "+Name);
+		System.out.println("Father name is "+Father);
+		System.out.println("College name is "+College);
+		System.out.println("Roll number is "+Roll);
+		System.out.println("Your hindi marks is "+Hindi);
+		System.out.println("Your English marks is "+English);
+		System.out.println("Your Physics Marks is "+Physics);
+		System.out.println("Your Chemistry Marks is "+Chemistry);
+		System.out.println("Your mathes marks is "+Mathes);
+		System.out.println("_____________________________________");
+		System.out.println("Total Marks you are getting "+Total);
+		System.out.println("Your percentage is "+Percentage);
+		System.out.println("_____________________________________");
+	}
+	public static void main(String[] args)
+	{
+		Markssheet_demo ob=new Markssheet_demo();
+		ob.getDetails();
+		
+	}
+
+}

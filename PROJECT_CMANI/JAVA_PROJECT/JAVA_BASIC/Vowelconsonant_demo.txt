@@ -1,0 +1,37 @@
+package condtional_statement;
+
+import java.util.Scanner;
+
+public class Vowelconsonant_demo 
+{
+	public void getalphabet(char ch)
+	
+	{
+		if(ch=='a' || ch=='e'||ch=='i' || ch=='o' || ch=='o' || ch=='A'|| ch=='E' || ch=='I' || ch=='O')
+		{
+			System.out.println("The enter character "+ch+" is volwel.");
+		}
+		else if((ch>='a'&&ch<='z')||(ch>='A'&&ch<='Z'))
+		{
+			System.out.println("The enter character "+ch+" is a consonant");
+		}
+		else
+		{
+			System.out.println("Not entered vaild input");
+		}
+		
+	}
+	public static void main(String[] args) 
+	{
+		Vowelconsonant_demo ob=new Vowelconsonant_demo();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter tha character ");
+		char ch=sc.next().charAt(0);
+		ob.getalphabet(ch);
+		
+		
+	
+		
+	}
+
+}

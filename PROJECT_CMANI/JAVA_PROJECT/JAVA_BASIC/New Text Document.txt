@@ -1,0 +1,64 @@
+package condtional_statement;
+
+import java.util.Scanner;
+
+public class Switch_calculator 
+{
+	float result;
+	float input1,input2;
+	public void getcal(int input)
+	{
+		switch (input)
+		{
+		case 1
+		{
+			result=(input1+input2);
+			System.out.println(input1+ + +input2+ = +result);
+			break;
+		}
+		case 2
+		{
+			result=(input1-input2);
+			System.out.println(input1+ - +input2+ = +result);
+			break;
+		}
+		case 3
+		{
+			result=(input1input2);
+			System.out.println(input1+ X +input2+ = +result);
+			break;
+		}
+		case 4
+		{
+			result=(input1input2);
+			System.out.println(input1+  +input2+ = +result);
+			break;
+		}
+		default
+		{
+			System.out.println();
+		}
+		}
+		
+		
+		}	
+		
+	
+	public static void main(String[] args) 
+	{
+		Switch_calculator ob=new Switch_calculator();
+		Scanner sc=new Scanner(System.in);
+		System.out.println(Enter the following option -  n 1. Add()  2.Sub()  3.Mul  4.Div );
+		int input=sc.nextInt();
+		System.out.println(Enter the 1st numbers );
+		float input1=sc.nextFloat();
+		System.out.println(Enter the 2nd numbers );
+		float input2=sc.nextFloat();
+		ob.getcal(input);
+		
+		
+	}
+
+}
+
+

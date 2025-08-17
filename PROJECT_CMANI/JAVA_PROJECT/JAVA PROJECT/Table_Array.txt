@@ -1,0 +1,15 @@
+package Array_Class;
+
+public class Table_Array {
+	public void gettablearray() {
+		
+		
+		
+	}
+	public static void main(String[] args) {
+		Table_Array ob=new Table_Array();
+		ob.gettablearray();
+		
+	}
+
+}

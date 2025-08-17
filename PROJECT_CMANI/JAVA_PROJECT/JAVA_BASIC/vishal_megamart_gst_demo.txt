@@ -1,0 +1,61 @@
+package condtional_statement;
+
+import java.util.Scanner;
+
+public class vishal_megamart_gst_demo 
+{
+	float gst;
+	public void getgstdetails()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the Customers Name");
+		String cn=sc.next();
+		System.out.println("Enter the Customer Mobile number");
+		float mn=sc.nextFloat();
+		System.out.println("Enter the Product ID");
+		int id=sc.nextInt();
+		System.out.println("Enter the product price");
+		float pp=sc.nextFloat();
+		
+		if (pp>=50&pp<=500)
+		{
+			gst=(pp*5)/100;
+			System.out.println("gst 5%");
+		}
+		else if (pp>=501&pp<=1000)
+		{
+			gst=(pp*12)/100;
+			System.out.println("gst 12%");
+		}
+		else if (pp>=1001&pp<=10000)
+		{
+			gst=(pp*18)/100;
+			System.out.println("gst 18%");
+		}
+		else
+			{
+			gst=(pp*28)/100;
+			System.out.println("gst 28%");
+			
+			}
+		
+		float Total=(pp+gst);
+		
+		System.out.println("Customer Name is "+cn);
+		System.out.println("Customer Mobile no. is "+mn);
+		System.out.println("Product ID is "+id);
+		System.out.println("Product Price is "+pp);
+		System.out.println("gst applied "+gst);
+		System.out.println("---------------------------------");
+		System.out.println("Total payable amoumt is "+Total);
+		System.out.println("---------------------------------");
+		
+	}
+	public static void main(String[] args) 
+	{
+		vishal_megamart_gst_demo ob=new vishal_megamart_gst_demo();
+		ob.getgstdetails();
+		
+	}
+
+}

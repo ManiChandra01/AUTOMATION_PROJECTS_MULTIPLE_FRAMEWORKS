@@ -1,0 +1,57 @@
+package excelutility;
+
+import java.io.FileInputStream;
+
+//ask in the interviewer Q. How to extract data from excel file >..Ans-org.apache.poi
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class ExcelReaddata
+{
+	// not used the void bcz the we requied the return valve
+		public String getdata(String path, int sheetno, int colno, int rowno) 
+		{
+			String value="";
+			try
+			{
+				// path means redirect the location of Excel file
+				// if you read the data used the Input stream.
+				// if you write the data used the Output stream
+				
+				FileInputStream fis = new FileInputStream(path);
+				
+				//we get excel data then we used the XSSfWorkbook class
+				
+				XSSFWorkbook wb = new XSSFWorkbook(fis);
+				
+				//we get excel data sheet  then we used the XSSfsheet class
+				XSSFSheet sheet = wb.getSheetAt(sheetno);
+				//we get data from sheet in the row col fromate.
+				
+				value=sheet.getRow(rowno).getCell(colno).getStringCellValue();
+				
+			}
+			catch (Exception e) 
+			{ 
+			}
+			return value;	
+		}
+		public static void main(String[] args) 
+		{
+			ExcelReaddata ob=new ExcelReaddata();
+			String path="C:\\Users\\Tajinder\\eclipse-workspace\\myclass_room\\testdata\\testdata_2023.xlsx";
+			
+			//if all data extract from data file then applied for loop or iteration method.
+					for (int i=0;i<=20;i++)
+					{
+			//if data value get in the from of (path,sheetno,rowno,colno)
+						String value = ob.getdata(path,0,0,i);
+						String value1 = ob.getdata(path,0,1,i);
+						System.out.println(value+"       "+value1);
+				
+			}
+		}
+
+	}
+

@@ -1,0 +1,26 @@
+package my_java_class;
+
+import java.util.Scanner;
+
+public class Table_demo 
+{
+	public void getTable(int num)
+	{
+		for(int p=1;p<=10;p++)
+		{
+			System.out.println(p*num);
+			
+		}
+	
+	}
+	public static void main(String[] args) 
+	{
+		Table_demo ob=new Table_demo();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number  ");
+		int num=sc.nextInt();
+		ob.getTable(num);
+		
+	}
+
+}

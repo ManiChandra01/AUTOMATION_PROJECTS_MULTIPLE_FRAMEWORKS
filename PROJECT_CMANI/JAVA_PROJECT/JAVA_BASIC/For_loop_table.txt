@@ -1,0 +1,27 @@
+package condtional_statement;
+
+import java.util.Scanner;
+
+public class For_loop_table 
+{
+	public void gettable(int num)
+	{
+		System.out.println("***Table of "+num+" is***");
+		for (int i=1;i<=10;i++)
+		{
+			
+			System.out.println(num+" X "+i+" = "+i*num);
+		}
+		
+	}
+	public static void main(String[] args) 
+	{
+		For_loop_table ob=new For_loop_table();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("**Please enter the table which you want**");
+		int num=sc.nextInt();
+		ob.gettable(num);	
+		
+	}
+
+}

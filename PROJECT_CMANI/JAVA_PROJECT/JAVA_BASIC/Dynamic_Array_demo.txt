@@ -1,0 +1,30 @@
+package Array_Class;
+
+import java.util.Scanner;
+
+public class Dynamic_Array_demo {
+	
+	public void dynamic() {
+		int size,i;
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Entered the size of array = ");
+		size=sc.nextInt();
+		int a[]=new int[size];
+		for (i=0;i<size;i++)
+		{
+			a[i]=sc.nextInt();
+		}
+		System.out.println("printed the array Elememts ");
+		for (i=0;i<size;i++) {
+			
+			System.out.print(a[i]+" ");
+		}
+		
+	}
+	public static void main(String[] args) {
+		Dynamic_Array_demo ob=new Dynamic_Array_demo();
+		ob.dynamic();
+		
+	}
+
+}

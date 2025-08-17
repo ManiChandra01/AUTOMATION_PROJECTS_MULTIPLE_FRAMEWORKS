@@ -1,0 +1,51 @@
+package excel_data_import;
+
+import java.io.FileInputStream;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class Exceldataget 
+{
+	// not used the void bcz the we requied the return valve
+	public String getdata(String path, int sheetno, int colno, int rowno) 
+	{
+		String value="";
+		try
+		{
+			// path means redirect the data location of Excel file
+			// if you read the data used the Input stream.
+			// if you write the data used the Output stream
+			
+			FileInputStream fis = new FileInputStream(path);
+			
+			//we get excel data then we used the XSSfWorkbook
+			
+			XSSFWorkbook wb = new XSSFWorkbook(fis);
+			XSSFSheet sheet = wb.getSheetAt(sheetno);
+			value=sheet.getRow(rowno).getcell(colno).getStringCellValue();
+			
+		}
+		catch (Exception e) 
+		{
+			System.out.println("Issue in Getraed data "+e);
+			
+		}
+		return value;
+		
+	}
+	public static void main(String[] args) 
+	{
+		Exceldataget ob = new Exceldataget();
+		String path="C:\\Users\\Tajinder\\eclipse-workspace\\myclass_room\\testdata_2023\\data_2023.xlsx"
+				for (int i=0;i<=12;i++)
+				{
+					String value = ob.getdata(path,0,0,i);
+					String value1 = ob.getdata(path,0,0,i);
+					System.out.println(value+"        "+value1);
+			
+			
+		}
+	}
+
+}

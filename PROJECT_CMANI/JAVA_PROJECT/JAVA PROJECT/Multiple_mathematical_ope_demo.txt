@@ -1,0 +1,20 @@
+package my_java_class;
+
+import java.util.Scanner;
+
+public class Multiple_mathematical_ope_demo
+{
+	public static void main(String[] args) {
+		int a= 100;
+		int b= 50;
+		int c= 01;		
+		System.out.println("a+b+c = "+(a+b+c));
+		System.out.println("a-b-c = "+(a-(b+c)));
+		System.out.println("a*b*c = "+(a*b*c));
+		System.out.println("(a/b)/(c) = "+(a/b)/(c));
+		System.out.println("a % b = "+(a%b));
+		
+		
+	}
+
+}

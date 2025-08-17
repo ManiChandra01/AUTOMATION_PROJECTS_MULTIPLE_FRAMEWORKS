@@ -1,0 +1,34 @@
+package Array_Class;
+
+import java.util.Scanner;
+
+public class Vowelconsonant_demo3 {
+
+	public void getvowelcons() {
+		
+		char a[]=new char[10];
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Entered the five charactor");
+		for (char i=0;i<=9;i++) {
+			a[i]=sc.next().charAt(0);	
+		}
+		System.out.println("The given charactor are vowels||consonants");
+		for (char k=0;k<=9;k++)
+		{
+			if(a[k]=='a'|| a[k]=='e' || a[k]=='i' || a[k]=='o' || a[k]=='u' ||a[k]=='A' || a[k]=='E'|| a[k]=='I' || a[k]=='U') {
+			
+			System.out.println(a[k]+" are vowel.");
+		}
+		else
+		{
+			System.out.println(a[k]+" are consonant.");
+		}
+		}
+		}
+		
+	public static void main(String[] args) {
+		Vowelconsonant_demo3 ob=new Vowelconsonant_demo3();
+		ob.getvowelcons();
+		
+	}
+}
