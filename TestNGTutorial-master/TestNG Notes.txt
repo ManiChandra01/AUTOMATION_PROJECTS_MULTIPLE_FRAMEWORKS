@@ -1,0 +1,268 @@
+TestNG Tutorial Series - https://github.com/prachicodestudio/TestNGTutorial.git
+----------------------
+Session-01
+
+What is TestNG
+1. TestNG is testing framework inspired from Junit which uses annotations (@) . 
+It has new functionalities which makes it more powerful and easy to use.
+
+2. TestNG is designed to cover all categories of tests eg. unit test, functional test , end to end test , integration test.
+
+Benefits of TestNG
+
+1. HTML report
+2. Annotations (@)
+3. Group and prioritized test cases
+4. Parellel testing 
+5. Generate logs
+6. Data Parameterization is possible.
+
+Creating project (maven) in eclipse IDE with TESTNG dependencies
+
+Create FirstTestNG Test
+
+Running TestNG test
+
+
+Session-02
+------------
+What Is A Test Suite
+Process of running multiple test cases at once is called test suite.
+
+<suite name = "MySuite">
+	<test name = "TestName">
+		<classes>
+			<class  name = "PackageName.classname1" />
+			<class  name = "PackageName.classname2" />
+		</classes>
+	</test>
+
+</suite>
+
+What is TestNG XML file
+How to create TestNG XML file
+How to run tests from XML file
+TestNG report
+
+Session -03
+----------------
+
+TestNG Annotations
+
+
+TestNG annotations are line of code/unique code identifier added to the programme to specify how the below procedure/method
+ shall be executed.
+
+@Annotation
+Public void TestMethod1()
+{
+}
+
+Annotations - https://testng.org/annotations.html
+------------
+@BeforeSuite: The annotated method will be run before all tests in this suite have run.
+
+@AfterSuite: The annotated method will be run after all tests in this suite have run.
+
+@BeforeTest: The annotated method will be run before any test method belonging to the classes inside the <test> tag is run.
+
+@AfterTest: The annotated method will be run after all the test methods belonging to the classes inside the <test> tag have run.
+
+@BeforeGroups: The list of groups that this configuration method will run before. This method is guaranteed to run shortly before the first test method that belongs to any of these groups is invoked.
+
+@AfterGroups: The list of groups that this configuration method will run after. This method is guaranteed to run shortly after the last test method that belongs to any of these groups is invoked.
+
+@BeforeClass: The annotated method will be run before the first test method in the current class is invoked.
+
+@AfterClass: The annotated method will be run after all the test methods in the current class have been run.
+
+@BeforeMethod: The annotated method will be run before each test method.
+
+@AfterMethod: The annotated method will be run after each test method.
+
+
+Session-04
+------------
+
+How to priortize test 
+@Test(priority =0)
+Lower the priority number, higher is the priority of the test method.
+
+
+
+Note: ByDefault TestNG test methods are executed alphabetially
+
+We can assign negative priorities to a test methods.
+With a method with no priority, the priority is set to 0 by default.
+
+
+How to disable test
+To disable test in testNG we should set the enabled attribute of the @Test annotation to false
+
+@Test(enabled=false)
+
+
+Session-05
+----------
+Grouping Test based on test category for eg. Sanity test group, functional test group , regression test group etc.
+
+@Test(groups={"GroupName1,GroupName2,..."}
+
+In TestNG xml File add group tag 
+Example
+
+
+Testng.xml
+
+<groups>
+	<run>
+		<exclude name="GroupName1"></exclude>
+		<include name="GroupName2"></include>
+		<include name="GroupName3"></include>
+	</run>
+		
+</groups>
+
+
+Session-06
+-----------
+
+Dependent Tests
+
+TestA and TestB test methods
+
+I want testB to run if TestA has run. In this testB depends on testA. Such tests are called Dependent Test in TestNG.
+
+TestNG allows you to specify dependecies by using dependsOn attribute.
+
+dependsOnMethods
+dependsOnGroups
+
+alwaysRun-
+alwaysRun attribute if set to true, this configuration method will be run even if one or more methods invoked previously failed or was skipped.
+
+
+
+Session-07
+-----------
+Assertions in TestNG are a way to verify that the expected result and the actual result matched or not.
+
+Assertion methods  in TestNG
+- Assert.assertTrue(), Assert.assertFalse(), Assert.Equals()
+
+
+Syntax
+Assert.Method(actual,expected);
+Assert.Method(actual,expected,message);
+
+Session-08
+------------
+TestNG Parameters are the arguments that we pass to the test methods.
+
+
+Session-09
+-----------
+DataProviders
+1) DataProviders are used for data driven testing which means same test case can be run with different set of data.
+2) We have to create a method for providing data to test methods.
+3) Annotated methods (@DataProvider) will return an array of object i;e Object[][] (2d list of object)
+4) DataProvider can have a name and it will be used in other test methods.
+5) DataProvider can be implemented in the same class or a separate class.
+
+@DataProvider(name = "name of the data provider")
+
+public Object[][] dataProviderMethod(){
+return new Object[][]
+{values};
+}
+
+Session-10
+-----------
+Parallel Testing or Parallel execution is a process of running the test case parallely rather than executing sequentially (one after another).
+
+It is used heavily with selenium for cross browser testing.
+
+Adv
+1) Reduces time
+2) It allows multi threaded test
+
+We can run 
+
+	test classes parallelly
+	test methods parallelly
+	test suite parallelly
+
+
+Session -11
+------------
+
+TestNG Listeners
+
+You can you use listeners to monitor and react to events during the test lifecycle such as test start, test success , test failure etc. TestNG Listeners allows you to add custom behavior to your test execution.
+
+Listeners enable ou to handle specific event during the execution of tests. For example- you can log information, capture screenshots on test failure or generate reports after test complete.
+
+TestNG provides many listener interfaces
+
+listeners are as follows:
+
+ITestListener - most popular
+IReporter
+ISuiteListener
+IInvokedMethod
+IHookable
+IConfigurationListener
+IConfigurableListener
+IAnnotationTransformer
+IExecution
+IMethodInterceptor
+
+ ITestListener in TestNG
+-------------------------
+
+1. Create listner class
+We have to create class in which we implement ITestListener override the ITestListener methods.
+
+onTestStart(ITestResult result): Called before a test method is invoked.
+onTestSuccess(ITestResult result): Called if a test method succeeds.
+onTestFailure(ITestResult result): Called if a test method fails.
+onTestSkipped(ITestResult result): Called if a test method is skipped.
+onStart(ITestContext context): Called before the test suite starts.
+onFinish(ITestContext context): Called after the test suite finishes.
+
+
+2. Add the listener class to your test
+	option1) add listner in the TestNG XML configuration
+	option2) user @Listeners annotation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

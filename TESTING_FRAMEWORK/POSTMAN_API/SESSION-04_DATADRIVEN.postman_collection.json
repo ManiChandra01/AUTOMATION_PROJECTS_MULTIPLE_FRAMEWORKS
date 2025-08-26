@@ -1,0 +1,53 @@
+{
+	"info": {
+		"_postman_id": "cae8e7df-6874-4bb1-9b3d-27b95d412b85",
+		"name": "SESSION-04_DATADRIVEN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23754396"
+	},
+	"item": [
+		{
+			"name": "POST_RESUEST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check status code\",function(){\r",
+							"    pm.response.to.have.status(201);\r",
+							"}\r",
+							")"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"job\": \"{{job}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users\n",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users\n"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

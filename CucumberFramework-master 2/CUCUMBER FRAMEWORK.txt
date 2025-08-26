@@ -1,0 +1,138 @@
+ session#1
+---------------
+1. What is BDD
+2. BDD(Behavior Driven Testing)  vs TDD (Test Driven Testing)
+3. What is cucumber
+4. Gherkhin language
+5. Important terms/keywords of Gherkhin language
+6. Practical Demo - used ecommerce website https://admin-demo.nopcommerce.com/login
+
+Created maven project in eclipse IDE
+Added cucumber- eclipse plugin
+
+created project structure
+	PageObject (package)
+	Utilities(package)
+	StepDefinition(package)
+	TestRunner (package)
+	Features(folder for feature files)
+	Target(folder  for reports)
+	Updated pom.xml for project dependencies
+created feature file (.feature ) for login test feature
+created pageobject class for login web page
+created step definition file for feature file (login test feature)
+created test runner file to run test case
+Generated test report
+	
+Session#2
+---------
+Data Driven Testing
+	Scenario outline keyword
+	Examples:
+Generated Reports in HTML, JSON & XML format
+Added new feature file (Add new customer)
+	Created feature file (customers.feature)
+	Added test steps in Gherkin language
+	Created page object class for add new customer page
+	created step definition for customers.feature file 
+	Executed test script (customers.feature) using test 	runner file (run.java)
+
+Session#3
+----------
+Added new scenarios in customers.feature file
+	Scenario: Search customer by email
+	Scenario: Search customer by name
+Background keyword : for common / repeating steps in scenarios
+
+Session#4
+----------
+Base class 
+Executing multiple feature files
+@Tags (or , and & and not operator)
+
+Session#5
+---------
+What are Hooks
+Types of hooks
+	Scenario hook: @Before //executed before start of  each scenario execution
+	& @After //executed after completion of each scenario execution
+	
+	Step Hooks: 
+	@Beforestep //executed before each step execution
+	@Afterstep //is executed before after each step execution
+
+	Conditional hook:@Before("@Sanity")
+
+How to capture screen shot of failed test scenarios
+
+Session#6
+------------
+Logger integration in eclipse
+	Apache-Log4j 2
+
+Session-7
+----------
+Run test cases / feature file on specific browser
+	configurtion.properties
+	read properties
+
+Session#8
+----------
+Execute test case using pom.xml within eclipse
+Execute test case outside eclipse using maven(a build tool)
+	a) Command Line Interface (CLI)
+	b) Batch file
+	c) Jenkins
+
+
+
+
+Session-9
+---------
+
+1. Running Cucumber with TestNG framework
+-------------------------------------- 
+Step 1. Update Pom.xml
+(a) Add:
+<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.4.0</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+<dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-testng</artifactId>
+    <version>7.3.4</version>
+</dependency>
+
+(b) Remove:
+Cucumber-junit dependency from pom.xml
+(c) save pom.xml
+
+Step2: Update maven project
+Right click on pom.xml->select maven->update project
+
+Step3:
+a) Open test runner file (run.java)
+b) Remove /comment out "@RunWith(Cucumber.class)"
+
+c) Instead of junit imports , use testng imports in run.java
+d) add "import io.cucumber.testng.AbstractTestNGCucumberTests;" in run.java
+e) extend this class from "AbstractTestNGCucumberTests"
+
+public class Run extends AbstractTestNGCucumberTests{
+	/*This class will be empty*/
+}
+
+Step 3:
+Create TestNG.xml file
+
+2. Created multiple step definition classes
+
+
+
+
