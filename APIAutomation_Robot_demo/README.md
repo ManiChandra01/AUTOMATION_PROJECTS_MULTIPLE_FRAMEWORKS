@@ -166,6 +166,7 @@ Then – Expected result or validation.
 
 And / But – To chain steps.
 
+```
 Example:
 
 Feature: Product Creation
@@ -174,7 +175,7 @@ Feature: Product Creation
     When the user sends a POST request to create a product
     Then the product should be created successfully
 ---
-
+```
 
 
 
