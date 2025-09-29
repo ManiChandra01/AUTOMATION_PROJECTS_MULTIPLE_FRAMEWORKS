@@ -101,12 +101,84 @@ Execute tags related test cases
 +----------------------------+
 ```
 
+robot-framework-project/
+│
+├── tests/
+│   ├── api/
+│   │   ├── test_product_api.robot
+│   │   ├── test_account_api.robot
+│   │   └── test_relationship_api.robot
+│   │
+│   └── ui/
+│       └── test_login_ui.robot
+│
+├── resources/
+│   ├── keywords/
+│   │   ├── api_keywords.robot
+│   │   └── ui_keywords.robot
+│   │
+│   ├── variables/
+│   │   ├── env_variables.robot
+│   │   └── common_data.robot
+│   │
+│   └── payloads/
+│       ├── product_payload.json
+│       └── account_payload.json
+│
+├── libraries/
+│   ├── custom_python_lib.py
+│   └── db_library.py
+│
+├── configs/
+│   ├── dev_config.yaml
+│   ├── qa_config.yaml
+│   └── prod_config.yaml
+│
+├── logs/                     # Output folder (auto-generated)
+│
+├── output/                   # Test reports go here
+│
+├── requirements.txt
+├── pyproject.toml / setup.py
+├── README.md
+└── robot.yaml
+
+
+
 * **Test Cases** – High-level instructions for testing.
 * **Keywords** – Actions or operations (can be built-in or custom).
 * **Libraries** – Pre-built libraries like SeleniumLibrary or RequestsLibrary.
 * **Core** – The Robot Framework engine that executes everything.
 
+1. What is Gherkin Language?
+
+Gherkin is a business-readable, domain-specific language for writing test cases in plain English.
+
+It follows the BDD (Behavior Driven Development) style.
+
+Tests are written using keywords like:
+
+Given – Initial context or setup.
+
+When – Action that triggers behavior.
+
+Then – Expected result or validation.
+
+And / But – To chain steps.
+
+Example:
+
+Feature: Product Creation
+  Scenario: Create a new product
+    Given the user is authenticated
+    When the user sends a POST request to create a product
+    Then the product should be created successfully
 ---
+
+
+
+
+
 
 ## **3. Basic Syntax**
 
