@@ -100,7 +100,7 @@ Execute tags related test cases
 |      Robot Framework Core   |
 +----------------------------+
 ```
-
+```
 robot-framework-project/
 │
 ├── tests/
@@ -142,7 +142,7 @@ robot-framework-project/
 ├── pyproject.toml / setup.py
 ├── README.md
 └── robot.yaml
-
+```
 
 
 * **Test Cases** – High-level instructions for testing.
