@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.9.6 on darwin)" generated="2025-10-04T10:36:42.798766" rpa="false" schemaversion="5">
+<suite id="s1" name="TEST DEMO 1" source="/Users/chandramani/PycharmProjects/PROJECT_2025/API_ROBOT_DEMO/TESTCASES/TEST_DEMO_1.robot">
+<test id="s1-t1" name="TC-01 Validate the MObile shop GET API" line="15">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-10-04T10:36:42.918180" level="INFO">Creating Session using : alias=get_demo, url=https://api.restful-api.dev/objects?id=3&amp;id=5&amp;id=10, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>get_demo</arg>
+<arg>${base_url}${qury_param}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-10-04T10:36:42.918038" elapsed="0.000277"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-10-04T10:36:44.311071" level="INFO">GET Request : url=https://api.restful-api.dev/objects?id=3&amp;id=5&amp;id=10/ 
+ path_url=/objects?id=3&amp;id=5&amp;id=10/ 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-10-04T10:36:44.311474" level="INFO">GET Response : url=https://api.restful-api.dev/objects?id=3&amp;id=5&amp;id=10/ 
+ status=200, reason=OK 
+ headers={'Date': 'Sat, 04 Oct 2025 05:06:44 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=4ZSfbql6daQXKprRBJErPUdTL8o4QaxwSoA8MgeFkxiQ%2BYlDNjrnWRNfhQvu1%2FkBIw4WswDS05lO746xf3O3%2FX9PGnR%2BI3xqXetaM4Ww7u%2Fyg50%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '989226d1599aeb32-SJC', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body=[{"id":"3","name":"Apple iPhone 12 Pro Max","data":{"color":"Cloudy White","capacity GB":512}},{"id":"5","name":"Samsung Galaxy Z Fold2","data":{"price":689.99,"color":"Brown"}}] 
+ </msg>
+<msg time="2025-10-04T10:36:44.311656" level="INFO">/Users/chandramani/Testing Mac/.venv/lib/python3.9/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-10-04T10:36:44.312015" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>get_demo</arg>
+<arg>/</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-10-04T10:36:42.918422" elapsed="1.393649"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-04T10:36:44.312794" elapsed="0.001332"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-04T10:36:44.314455" elapsed="0.001025"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-04T10:36:44.316052" elapsed="0.001296"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.headers}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-04T10:36:44.317692" elapsed="0.001436"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-04T10:36:44.320458" level="INFO">200</msg>
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-04T10:36:44.319552" elapsed="0.000990"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-04T10:36:44.321527" level="INFO">[{"id":"3","name":"Apple iPhone 12 Pro Max","data":{"color":"Cloudy White","capacity GB":512}},{"id":"5","name":"Samsung Galaxy Z Fold2","data":{"price":689.99,"color":"Brown"}}]</msg>
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-04T10:36:44.320783" elapsed="0.000838"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-04T10:36:44.322741" level="INFO">[{'id': '3', 'name': 'Apple iPhone 12 Pro Max', 'data': {'color': 'Cloudy White', 'capacity GB': 512}}, {'id': '5', 'name': 'Samsung Galaxy Z Fold2', 'data': {'price': 689.99, 'color': 'Brown'}}]</msg>
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-04T10:36:44.321889" elapsed="0.000947"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-04T10:36:44.324251" level="INFO">{'Date': 'Sat, 04 Oct 2025 05:06:44 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=4ZSfbql6daQXKprRBJErPUdTL8o4QaxwSoA8MgeFkxiQ%2BYlDNjrnWRNfhQvu1%2FkBIw4WswDS05lO746xf3O3%2FX9PGnR%2BI3xqXetaM4Ww7u%2Fyg50%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '989226d1599aeb32-SJC', 'alt-svc': 'h3=":443"; ma=86400'}</msg>
+<arg>${response.headers}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-04T10:36:44.323246" elapsed="0.001106"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2025-10-04T10:36:44.325420" level="INFO">${status_code} = 200</msg>
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2025-10-04T10:36:44.324628" elapsed="0.000835"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2025-10-04T10:36:44.326468" level="INFO">${response_content} = [{"id":"3","name":"Apple iPhone 12 Pro Max","data":{"color":"Cloudy White","capacity GB":512}},{"id":"5","name":"Samsung Galaxy Z Fold2","data":{"price":689.99,"color":"Brown"}}]</msg>
+<var>${response_content}</var>
+<arg>${response.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2025-10-04T10:36:44.325700" elapsed="0.000809"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-10-04T10:36:44.327507" level="INFO">${headres_r} = cloudflare</msg>
+<var>${headres_r}</var>
+<arg>${response.headers}</arg>
+<arg>server</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-10-04T10:36:44.326739" elapsed="0.000806"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-10-04T10:36:44.327771" elapsed="0.000282"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-10-04T10:36:44.328259" elapsed="0.000266"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${headres_r}</arg>
+<arg>cloudflare</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-10-04T10:36:44.328729" elapsed="0.000263"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-04T10:36:44.330160" level="INFO">${responsesbody} = [{'id': '3', 'name': 'Apple iPhone 12 Pro Max', 'data': {'color': 'Cloudy White', 'capacity GB': 512}}, {'id': '5', 'name': 'Samsung Galaxy Z Fold2', 'data': {'price': 689.99, 'color': 'Brown'}}]</msg>
+<var>${responsesbody}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-04T10:36:44.329283" elapsed="0.001021"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-10-04T10:36:44.377798" level="INFO">${ids} = ['3', '5']</msg>
+<var>${ids}</var>
+<arg>${responsesbody}</arg>
+<arg>$..id</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-10-04T10:36:44.330543" elapsed="0.047287"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-10-04T10:36:44.378187" level="INFO">${Extract_krishna_ids} = 3</msg>
+<var>${Extract_krishna_ids}</var>
+<arg>${ids}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-10-04T10:36:44.378007" elapsed="0.000199"/>
+</kw>
+<status status="PASS" start="2025-10-04T10:36:42.917408" elapsed="1.460920"/>
+</test>
+<status status="PASS" start="2025-10-04T10:36:42.799964" elapsed="1.578642"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TEST DEMO 1">TEST DEMO 1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
