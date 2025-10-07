@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.9.6 on darwin)" generated="2025-10-07T20:43:31.625481" rpa="false" schemaversion="5">
+<suite id="s1" name="CURD OPERATION" source="/Users/chandramani/PycharmProjects/PROJECT_2025/ROBOT_2025/TESTS/CURD_OPERATION.robot">
+<test id="s1-t1" name="TC-01 Post MacBook Data" line="64">
+<kw name="Generating the test_json with all feilds" owner="CURD_KEYWORD">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-10-07T20:43:31.772465" level="INFO">${Resquest} = {'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
+<var>${Resquest}</var>
+<arg>${Resquest_json}</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-10-07T20:43:31.772274" elapsed="0.000215"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-07T20:43:31.772645" level="INFO">{'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
+<arg>${Resquest}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-07T20:43:31.772568" elapsed="0.000101"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-10-07T20:43:31.772857" level="INFO">${Resquest} = {'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
+<arg>${Resquest}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-10-07T20:43:31.772739" elapsed="0.000139"/>
+</kw>
+<arg>${payload}</arg>
+<status status="PASS" start="2025-10-07T20:43:31.771607" elapsed="0.001304"/>
+</kw>
+<kw name="Execute POST Request And Fetch Response" owner="CURD_KEYWORD">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-10-07T20:43:31.773262" level="INFO">Creating Session using : alias=POST_demo, url=https://api.restful-api.dev/objects, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>POST_demo</arg>
+<arg>${url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-10-07T20:43:31.773185" elapsed="0.000186"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<msg time="2025-10-07T20:43:31.773529" level="INFO">${payload} = {'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
+<var>${payload}</var>
+<arg>${Resquest}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-10-07T20:43:31.773439" elapsed="0.000103"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-10-07T20:43:32.661876" level="INFO">POST Request : url=https://api.restful-api.dev/objects 
+ path_url=/objects 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '130', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Apple MacBook Pro 16", "data": {"year": 2019, "price": 1849.99, "CPU model": "Intel Core i9", "Hard disk size": "1 TB"}}' 
+ </msg>
+<msg time="2025-10-07T20:43:32.662403" level="INFO">POST Response : url=https://api.restful-api.dev/objects 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 07 Oct 2025 15:13:32 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=4lgoYUJNRBmXHTS53F3V2HHV9l5Q20b4StG0%2FKAAYW8UON%2BO76Z%2FedO2T2k2Wr8W9M%2B4%2Bbnu%2FVihLqfc4aud52if1nImOSXjamja%2FRT3YdIG73A%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '98ae57d17cdd1e53-FRA', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":"ff8081819782e69e0199bf3c1f566750","name":"Apple MacBook Pro 16","createdAt":"2025-10-07T15:13:32.502+00:00","data":{"year":2019,"price":1849.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB"}} 
+ </msg>
+<msg time="2025-10-07T20:43:32.662723" level="INFO">/Users/chandramani/Testing Mac/.venv/lib/python3.9/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-10-07T20:43:32.663153" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>POST_demo</arg>
+<arg>${url}</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-10-07T20:43:31.773608" elapsed="0.889601"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-10-07T20:43:32.665192" level="INFO">{'id': 'ff8081819782e69e0199bf3c1f566750', 'name': 'Apple MacBook Pro 16', 'createdAt': '2025-10-07T15:13:32.502+00:00', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-10-07T20:43:32.663810" elapsed="0.001476"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-10-07T20:43:32.666647" level="INFO">${responsesbody} = {'id': 'ff8081819782e69e0199bf3c1f566750', 'name': 'Apple MacBook Pro 16', 'createdAt': '2025-10-07T15:13:32.502+00:00', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard di...</msg>
+<var>${responsesbody}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-10-07T20:43:32.665571" elapsed="0.001132"/>
+</kw>
+<arg>${base_url}</arg>
+<status status="PASS" start="2025-10-07T20:43:31.773018" elapsed="0.893982"/>
+</kw>
+<doc>This test posts MacBook data to the API</doc>
+<status status="PASS" start="2025-10-07T20:43:31.771181" elapsed="0.896344"/>
+</test>
+<status status="PASS" start="2025-10-07T20:43:31.626541" elapsed="1.041808"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="CURD OPERATION">CURD OPERATION</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-10-07T20:43:31.770179" level="ERROR">Error in file '/Users/chandramani/PycharmProjects/PROJECT_2025/ROBOT_2025/RESOURCE/KEYWORDS/CURD_KEYWORD.robot' on line 2: Resource file '../LIBRARY/common.robot' does not exist.</msg>
+<msg time="2025-10-07T20:43:31.770315" level="ERROR">Error in file '/Users/chandramani/PycharmProjects/PROJECT_2025/ROBOT_2025/RESOURCE/KEYWORDS/CURD_KEYWORD.robot' on line 3: Resource file '../RESOURCE/KEYWORDS/CURD_KEYWORD.robot' does not exist.</msg>
+<msg time="2025-10-07T20:43:31.770415" level="ERROR">Error in file '/Users/chandramani/PycharmProjects/PROJECT_2025/ROBOT_2025/RESOURCE/KEYWORDS/CURD_KEYWORD.robot' on line 4: Resource file '../RESOURCE/VARIABLE/Common_variable.robot' does not exist.</msg>
+</errors>
+</robot>
