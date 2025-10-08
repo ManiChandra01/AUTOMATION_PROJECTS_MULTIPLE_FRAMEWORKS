@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.9.6 on darwin)" generated="2025-10-08T21:29:14.744116" rpa="false" schemaversion="5">
+<suite id="s1" name="CURD OPERATION" source="/Users/chandramani/PycharmProjects/PROJECT_2025/API_ROBOT_DEMO/TESTS/CURD_OPERATION.robot">
+<test id="s1-t1" name="TC-01 Validate the POST call to Get Response" line="79">
+<for flavor="IN">
+<iter>
+<kw name="For">
+<arg>${v}</arg>
+<arg>IN</arg>
+<arg>@{Invalid_values}</arg>
+<status status="NOT RUN" start="2025-10-08T21:29:14.891489" elapsed="0.000014"/>
+</kw>
+<kw name="Generating the test_json with all feilds" owner="CURD_KEYWORD">
+<arg>${payload}</arg>
+<arg>POST_DATA</arg>
+<status status="NOT RUN" start="2025-10-08T21:29:14.891614" elapsed="0.000014"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${Final_payload['data']}</arg>
+<arg>${k}=${v}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="NOT RUN" start="2025-10-08T21:29:14.891698" elapsed="0.000010"/>
+</kw>
+<kw name="Execute POST Request And Fetch Response" owner="CURD_KEYWORD">
+<arg>${base_url}</arg>
+<status status="NOT RUN" start="2025-10-08T21:29:14.891785" elapsed="0.000012"/>
+</kw>
+<var name="${k} IN"/>
+<var name="@{data}"/>
+<status status="NOT RUN" start="2025-10-08T21:29:14.890833" elapsed="0.000980"/>
+</iter>
+<msg time="2025-10-08T21:29:14.891834" level="FAIL">FOR loop has no 'IN' or other valid separator.</msg>
+<var>${k} IN</var>
+<var>@{data}</var>
+<status status="FAIL" start="2025-10-08T21:29:14.890758" elapsed="0.001105">FOR loop has no 'IN' or other valid separator.</status>
+</for>
+<error>
+<value>END</value>
+<status status="NOT RUN" start="2025-10-08T21:29:14.891913" elapsed="0.000056"/>
+</error>
+<status status="FAIL" start="2025-10-08T21:29:14.890579" elapsed="0.001485">FOR loop has no 'IN' or other valid separator.</status>
+</test>
+<status status="FAIL" start="2025-10-08T21:29:14.745272" elapsed="0.147004"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="CURD OPERATION">CURD OPERATION</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
