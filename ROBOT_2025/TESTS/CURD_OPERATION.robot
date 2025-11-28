@@ -4,6 +4,8 @@ Resource    ../RESOURCE/KEYWORDS/CURD_KEYWORD.robot
 Resource    ../RESOURCE/VARIABLE/Common_variable.robot
 
 
+
+
 #*** Test Cases ***
 #TC001_WelcomeToBookApi
 #        Create Session    get_demo    ${base_url}${query_parametert}
@@ -49,7 +51,7 @@ Resource    ../RESOURCE/VARIABLE/Common_variable.robot
 #    Validate Headers    ${response}    cloudflare
 #    Validate Response Payload    ${response}
 
-*** Test Cases ***
+
 #TC-01 Post MacBook Data
 #    [Documentation]    This test posts MacBook data to the API
 #    Create Session    mysession    ${base_url}
@@ -60,9 +62,50 @@ Resource    ../RESOURCE/VARIABLE/Common_variable.robot
 #    Should Be Equal As Integers    ${response.status_code}    200
 
 
+*** Test Cases ***
+#TC-01 Post MacBook Data
+#    [Documentation]    This test posts MacBook data to the API
+#    FOR     ${Values}   IN  @{Invalid}
+#        Generating the test_json with all feilds    ${payload}      POST_DATA
+#        set to dictionary  ${Final_payload ['data']}     year=${Values}
+##       remove from dictionary  ${Final_payload ['data']}   year      # Using the attribute not send in dict
+#        Execute POST Request And Fetch Response     ${base_url}
+#    END
 
 TC-01 Post MacBook Data
     [Documentation]    This test posts MacBook data to the API
-    Generating the test_json with all feilds    ${payload}
-    Execute POST Request And Fetch Response       ${base_url}
+        Generating the test_json with all feilds    ${payload}      POST_DATA
+        set to dictionary  ${Final_payload ['data']}     year=2019
+#       remove from dictionary  ${Final_payload ['data']}   year      # Using the attribute not send in dict
+        Execute CURD Request And Fetch Response    ${base_url}
+
+#
+#TC-02 GET MacBook Data
+#    [Documentation]    This test posts MacBook data to the API
+#        Generating the test_json with all feilds    ${payload}      POST_DATA
+#        set to dictionary  ${Final_payload ['data']}     year=2019
+##       remove from dictionary  ${Final_payload ['data']}   year      # Using the attribute not send in dict
+#        Execute GET Request And Fetch Response    ${base_url}
+
+
+TC-03 GET MacBook Data
+    [Documentation]    This test posts MacBook data to the API
+        Generating the test_json with all feilds    ${payload}      POST_DATA
+        set to dictionary  ${Final_payload ['data']}     year=22222
+#       remove from dictionary  ${Final_payload ['data']}   year      # Using the attribute not send in dict
+        Execute delete Request    ${base_url}     ${Final_payload}
+
+
+
+#TC-02 Validate the Keys with invalid values
+#
+#    FOR     ${k}    IN  @{Key_List}
+#        FOR     ${v}    IN  @{Invalid}
+#            Generating the test_json with all feilds    ${payload}      POST_DATA
+#            set to dictionary  ${Final_payload ['data']}     ${k}=${v}
+#            log  ${Final_payload}
+##           remove from dictionary  ${Final_payload ['data']}   year      # Using the attribute not send in dict
+#            Execute POST Request And Fetch Response       ${base_url}
+#        END
+#    END
 

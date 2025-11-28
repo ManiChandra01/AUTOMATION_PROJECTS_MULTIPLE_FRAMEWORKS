@@ -1,100 +1,231 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.9.6 on darwin)" generated="2025-10-07T20:43:31.625481" rpa="false" schemaversion="5">
-<suite id="s1" name="CURD OPERATION" source="/Users/chandramani/PycharmProjects/PROJECT_2025/ROBOT_2025/TESTS/CURD_OPERATION.robot">
-<test id="s1-t1" name="TC-01 Post MacBook Data" line="64">
-<kw name="Generating the test_json with all feilds" owner="CURD_KEYWORD">
-<kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-10-07T20:43:31.772465" level="INFO">${Resquest} = {'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
-<var>${Resquest}</var>
-<arg>${Resquest_json}</arg>
-<doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-10-07T20:43:31.772274" elapsed="0.000215"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-10-07T20:43:31.772645" level="INFO">{'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
-<arg>${Resquest}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-10-07T20:43:31.772568" elapsed="0.000101"/>
-</kw>
-<kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-10-07T20:43:31.772857" level="INFO">${Resquest} = {'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
-<arg>${Resquest}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-10-07T20:43:31.772739" elapsed="0.000139"/>
-</kw>
-<arg>${payload}</arg>
-<status status="PASS" start="2025-10-07T20:43:31.771607" elapsed="0.001304"/>
-</kw>
-<kw name="Execute POST Request And Fetch Response" owner="CURD_KEYWORD">
-<kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-10-07T20:43:31.773262" level="INFO">Creating Session using : alias=POST_demo, url=https://api.restful-api.dev/objects, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<arg>POST_demo</arg>
-<arg>${url}</arg>
+<robot generator="Robot 7.1.1 (Python 3.9.6 on darwin)" generated="2025-11-28T18:58:40.732896" rpa="false" schemaversion="5">
+<suite id="s1" name="Test" source="/Users/chandramani/PycharmProjects/PROJECT_2025/ROBOT_2025/TESTS/test.robot">
+<kw name="Create Session" owner="RequestsLibrary" type="SETUP">
+<msg time="2025-11-28T18:58:40.969900" level="INFO">Creating Session using : alias=api, url=https://api.restful-api.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api</arg>
+<arg>https://api.restful-api.dev</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-10-07T20:43:31.773185" elapsed="0.000186"/>
+<status status="PASS" start="2025-11-28T18:58:40.969801" elapsed="0.000238"/>
 </kw>
-<kw name="Set To Dictionary" owner="Collections">
-<msg time="2025-10-07T20:43:31.773529" level="INFO">${payload} = {'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
-<var>${payload}</var>
-<arg>${Resquest}</arg>
-<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
-<status status="PASS" start="2025-10-07T20:43:31.773439" elapsed="0.000103"/>
-</kw>
-<kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-10-07T20:43:32.661876" level="INFO">POST Request : url=https://api.restful-api.dev/objects 
- path_url=/objects 
- headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '130', 'Content-Type': 'application/json'} 
- body=b'{"name": "Apple MacBook Pro 16", "data": {"year": 2019, "price": 1849.99, "CPU model": "Intel Core i9", "Hard disk size": "1 TB"}}' 
+<test id="s1-t1" name="TC_01 Get Multiple Objects" line="13">
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2025-11-28T18:58:40.970413" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-11-28T18:58:42.968277" level="INFO">GET Request : url=https://api.restful-api.dev/objects?id=3&amp;id=5&amp;id=10 
+ path_url=/objects?id=3&amp;id=5&amp;id=10 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
  </msg>
-<msg time="2025-10-07T20:43:32.662403" level="INFO">POST Response : url=https://api.restful-api.dev/objects 
+<msg time="2025-11-28T18:58:42.968841" level="INFO">GET Response : url=https://api.restful-api.dev/objects?id=3&amp;id=5&amp;id=10 
  status=200, reason=OK 
- headers={'Date': 'Tue, 07 Oct 2025 15:13:32 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=4lgoYUJNRBmXHTS53F3V2HHV9l5Q20b4StG0%2FKAAYW8UON%2BO76Z%2FedO2T2k2Wr8W9M%2B4%2Bbnu%2FVihLqfc4aud52if1nImOSXjamja%2FRT3YdIG73A%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '98ae57d17cdd1e53-FRA', 'alt-svc': 'h3=":443"; ma=86400'} 
- body={"id":"ff8081819782e69e0199bf3c1f566750","name":"Apple MacBook Pro 16","createdAt":"2025-10-07T15:13:32.502+00:00","data":{"year":2019,"price":1849.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB"}} 
+ headers={'Date': 'Fri, 28 Nov 2025 13:28:42 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=WFcY1uB00kqHYMl%2Bm8F5%2F4wAb8kYItpKa0gjKZpa9qBHkRldfIZnmSb%2F66PyTXTtNtxHgeUKsqG5Zhq%2FEWZ%2BUbJUFsZKUEF0ikJNZ8IvfG6ghA%2BfRAH0JYCv0dIwC5k%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '9a5a35bcbff34aaf-MRS', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body=[{"id":"3","name":"Apple iPhone 12 Pro Max","data":{"color":"Cloudy White","capacity GB":512}},{"id":"5","name":"Samsung Galaxy Z Fold2","data":{"price":689.99,"color":"Brown"}},{"id":"10","name":"Apple iPad Mini 5th Gen","data":{"Capacity":"64 GB","Screen size":7.9}}] 
  </msg>
-<msg time="2025-10-07T20:43:32.662723" level="INFO">/Users/chandramani/Testing Mac/.venv/lib/python3.9/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg time="2025-11-28T18:58:42.969136" level="INFO">/Users/chandramani/Testing Mac/.venv/lib/python3.9/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   warnings.warn(</msg>
-<msg time="2025-10-07T20:43:32.663153" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-11-28T18:58:42.969612" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
-<arg>POST_demo</arg>
-<arg>${url}</arg>
-<arg>json=${payload}</arg>
-<doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-10-07T20:43:31.773608" elapsed="0.889601"/>
+<arg>api</arg>
+<arg>/objects?id=3&amp;id=5&amp;id=10</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2025-11-28T18:58:40.970397" elapsed="1.999272"/>
 </kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-10-07T20:43:32.665192" level="INFO">{'id': 'ff8081819782e69e0199bf3c1f566750', 'name': 'Apple MacBook Pro 16', 'createdAt': '2025-10-07T15:13:32.502+00:00', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
-<arg>${response.json()}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-10-07T20:43:32.663810" elapsed="0.001476"/>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-11-28T18:58:42.970258" elapsed="0.000815"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-10-07T20:43:32.666647" level="INFO">${responsesbody} = {'id': 'ff8081819782e69e0199bf3c1f566750', 'name': 'Apple MacBook Pro 16', 'createdAt': '2025-10-07T15:13:32.502+00:00', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard di...</msg>
-<var>${responsesbody}</var>
-<arg>${response.json()}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-10-07T20:43:32.665571" elapsed="0.001132"/>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-28T18:58:42.971417" elapsed="0.001027"/>
 </kw>
-<arg>${base_url}</arg>
-<status status="PASS" start="2025-10-07T20:43:31.773018" elapsed="0.893982"/>
-</kw>
-<doc>This test posts MacBook data to the API</doc>
-<status status="PASS" start="2025-10-07T20:43:31.771181" elapsed="0.896344"/>
+<doc>Validate GET Objects by multiple IDs</doc>
+<status status="PASS" start="2025-11-28T18:58:40.970113" elapsed="2.003609"/>
 </test>
-<status status="PASS" start="2025-10-07T20:43:31.626541" elapsed="1.041808"/>
+<test id="s1-t2" name="TC_02 Create New Object (POST)" line="19">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-11-28T18:58:42.976966" level="FAIL">Resolving variable '${{"year":2019,"price":1849.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB"}}' failed: Evaluating expression '"year":2019,"price":1849.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB"' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
+<var>${body}</var>
+<arg>name=Apple MacBook Pro 16</arg>
+<arg>data=${{"year":2019,"price":1849.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB"}}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="FAIL" start="2025-11-28T18:58:42.975673" elapsed="0.001442">Resolving variable '${{"year":2019,"price":1849.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB"}}' failed: Evaluating expression '"year":2019,"price":1849.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB"' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</kw>
+<kw name="Post Request" owner="RequestsLibrary">
+<msg time="2025-11-28T18:58:42.977671" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<var>${response}</var>
+<arg>api</arg>
+<arg>/objects</arg>
+<arg>json=${body}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="NOT RUN" start="2025-11-28T18:58:42.977623" elapsed="0.000210"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="NOT RUN" start="2025-11-28T18:58:42.978070" elapsed="0.000034"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2025-11-28T18:58:42.978648" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<var>${json}</var>
+<arg>${response.text}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="NOT RUN" start="2025-11-28T18:58:42.978568" elapsed="0.000298"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${created_id}</var>
+<arg>${json}</arg>
+<arg>id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2025-11-28T18:58:42.979134" elapsed="0.000035"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${OBJECT_ID}</arg>
+<arg>${created_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2025-11-28T18:58:42.979403" elapsed="0.000083"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Created Object ID: ${OBJECT_ID}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-28T18:58:42.979767" elapsed="0.000039"/>
+</kw>
+<doc>Create an object and store ID for further requests</doc>
+<status status="FAIL" start="2025-11-28T18:58:42.974307" elapsed="0.005822">Resolving variable '${{"year":2019,"price":1849.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB"}}' failed: Evaluating expression '"year":2019,"price":1849.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB"' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</test>
+<test id="s1-t3" name="TC_03 Update Object (PUT)" line="31">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-11-28T18:58:42.982397" level="FAIL">Resolving variable '${{"year":2019,"price":2049.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB","color":"silver"}}' failed: Evaluating expression '"year":2019,"price":2049.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB","color":"silver"' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
+<var>${body}</var>
+<arg>name=Apple MacBook Pro 16</arg>
+<arg>data=${{"year":2019,"price":2049.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB","color":"silver"}}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="FAIL" start="2025-11-28T18:58:42.981415" elapsed="0.001059">Resolving variable '${{"year":2019,"price":2049.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB","color":"silver"}}' failed: Evaluating expression '"year":2019,"price":2049.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB","color":"silver"' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</kw>
+<kw name="Put Request" owner="RequestsLibrary">
+<msg time="2025-11-28T18:58:42.982958" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+<var>${response}</var>
+<arg>api</arg>
+<arg>/objects/${OBJECT_ID}</arg>
+<arg>json=${body}</arg>
+<doc>*DEPRECATED* Please use `PUT On Session` instead.</doc>
+<status status="NOT RUN" start="2025-11-28T18:58:42.982914" elapsed="0.000187"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="NOT RUN" start="2025-11-28T18:58:42.983330" elapsed="0.000035"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-11-28T18:58:42.983829" elapsed="0.000096"/>
+</kw>
+<doc>Update created object and verify response</doc>
+<status status="FAIL" start="2025-11-28T18:58:42.980537" elapsed="0.004126">Resolving variable '${{"year":2019,"price":2049.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB","color":"silver"}}' failed: Evaluating expression '"year":2019,"price":2049.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB","color":"silver"' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+</test>
+<test id="s1-t4" name="TC_04 Partially Update Object (PATCH)" line="40">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-11-28T18:58:42.985805" level="INFO">${body} = {'name': 'Apple MacBook Pro 14 (Updated Name)'}</msg>
+<var>${body}</var>
+<arg>name=Apple MacBook Pro 14 (Updated Name)</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-11-28T18:58:42.985529" elapsed="0.000311"/>
+</kw>
+<kw name="Patch Request" owner="RequestsLibrary">
+<msg time="2025-11-28T18:58:42.986049" level="WARN">Keyword 'RequestsLibrary.Patch Request' is deprecated. Please use `PATCH On Session` instead.</msg>
+<msg time="2025-11-28T18:58:50.862331" level="INFO">PATCH Request : url=https://api.restful-api.dev/objects/ 
+ path_url=/objects/ 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '47', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Apple MacBook Pro 14 (Updated Name)"}' 
+ </msg>
+<msg time="2025-11-28T18:58:50.862667" level="INFO">PATCH Response : url=https://api.restful-api.dev/objects/ 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 28 Nov 2025 13:28:50 GMT', 'Content-Type': 'text/plain;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=2HE47dQOEbaAh0XShZZkYxAHgSZW%2F5Wbpi2IXnjgvfF1cCRlu133VXI43mDwrTw7imvlvUE0IFXjQI%2FuFx%2Bj5whjTIWJLoOcumNrCEGfSM%2FldV3V0%2FYlh4wvuxF78To%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '9a5a35c529374aaf-MRS', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body=Hello world from Spring Boot 
+ </msg>
+<msg time="2025-11-28T18:58:50.862888" level="INFO">/Users/chandramani/Testing Mac/.venv/lib/python3.9/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-11-28T18:58:50.863340" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api</arg>
+<arg>/objects/${OBJECT_ID}</arg>
+<arg>json=${body}</arg>
+<doc>*DEPRECATED* Please use `PATCH On Session` instead.</doc>
+<status status="PASS" start="2025-11-28T18:58:42.986019" elapsed="7.877411"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-11-28T18:58:50.864234" elapsed="0.000746"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-28T18:58:50.865374" elapsed="0.001569"/>
+</kw>
+<doc>Update only name using PATCH</doc>
+<status status="PASS" start="2025-11-28T18:58:42.985032" elapsed="7.882306"/>
+</test>
+<test id="s1-t5" name="TC_05 Delete Object (DELETE)" line="47">
+<kw name="Delete Request" owner="RequestsLibrary">
+<msg time="2025-11-28T18:58:50.869171" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
+<msg time="2025-11-28T18:58:51.607052" level="INFO">DELETE Request : url=https://api.restful-api.dev/objects/ 
+ path_url=/objects/ 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-11-28T18:58:51.607405" level="INFO">DELETE Response : url=https://api.restful-api.dev/objects/ 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 28 Nov 2025 13:28:51 GMT', 'Content-Type': 'text/plain;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=sA294aKruubqhSek67dIiR8sxnOthNM0%2BzvecZZ3wJ0fC%2BSFs1ai4%2B6lEXJsPXwr6AmtpcymhpF0qv%2Bp8xJBmXTGKY9fwF6Y99WuqQXkQxacxlu42gWXX4jJZjJaY2Q%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '9a5a35f67eec4aaf-MRS', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body=Hello world from Spring Boot 
+ </msg>
+<msg time="2025-11-28T18:58:51.607646" level="INFO">/Users/chandramani/Testing Mac/.venv/lib/python3.9/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-11-28T18:58:51.608034" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>api</arg>
+<arg>/objects/${OBJECT_ID}</arg>
+<doc>*DEPRECATED* Please use `DELETE On Session` instead.</doc>
+<status status="PASS" start="2025-11-28T18:58:50.869022" elapsed="0.739077"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-11-28T18:58:51.609199" elapsed="0.000768"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Deleted ID: ${OBJECT_ID}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-28T18:58:51.610355" elapsed="0.000346"/>
+</kw>
+<doc>Delete object by ID</doc>
+<status status="PASS" start="2025-11-28T18:58:50.867812" elapsed="0.743189"/>
+</test>
+<status status="FAIL" start="2025-11-28T18:58:40.734006" elapsed="10.878189"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="3" fail="2" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="CURD OPERATION">CURD OPERATION</stat>
+<stat pass="3" fail="2" skip="0" id="s1" name="Test">Test</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-10-07T20:43:31.770179" level="ERROR">Error in file '/Users/chandramani/PycharmProjects/PROJECT_2025/ROBOT_2025/RESOURCE/KEYWORDS/CURD_KEYWORD.robot' on line 2: Resource file '../LIBRARY/common.robot' does not exist.</msg>
-<msg time="2025-10-07T20:43:31.770315" level="ERROR">Error in file '/Users/chandramani/PycharmProjects/PROJECT_2025/ROBOT_2025/RESOURCE/KEYWORDS/CURD_KEYWORD.robot' on line 3: Resource file '../RESOURCE/KEYWORDS/CURD_KEYWORD.robot' does not exist.</msg>
-<msg time="2025-10-07T20:43:31.770415" level="ERROR">Error in file '/Users/chandramani/PycharmProjects/PROJECT_2025/ROBOT_2025/RESOURCE/KEYWORDS/CURD_KEYWORD.robot' on line 4: Resource file '../RESOURCE/VARIABLE/Common_variable.robot' does not exist.</msg>
+<msg time="2025-11-28T18:58:40.970413" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-11-28T18:58:42.977671" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-11-28T18:58:42.978648" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-11-28T18:58:42.982958" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+<msg time="2025-11-28T18:58:42.986049" level="WARN">Keyword 'RequestsLibrary.Patch Request' is deprecated. Please use `PATCH On Session` instead.</msg>
+<msg time="2025-11-28T18:58:50.869171" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
 </errors>
 </robot>
