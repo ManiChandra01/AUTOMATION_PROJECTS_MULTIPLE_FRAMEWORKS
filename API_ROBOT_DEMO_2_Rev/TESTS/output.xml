@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.9.6 on darwin)" generated="2025-11-28T23:46:55.346438" rpa="false" schemaversion="5">
+<suite id="s1" name="CURD OPERATION" source="/Users/chandramani/PycharmProjects/PROJECT_2025/API_ROBOT_DEMO_2_Rev/TESTS/CURD_OPERATION.robot">
+<test id="s1-t1" name="TC 1 - Create the dummy POST resquest" line="9">
+<kw name="Creating the request payload" owner="CURD_KEYWORD">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-11-28T23:46:55.496668" level="INFO">${Request} = {'POST_DATA': {'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}, 'PATCH_DATA': {}}</msg>
+<var>${Request}</var>
+<arg>${request_json}</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-11-28T23:46:55.496303" elapsed="0.000385"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-11-28T23:46:55.496895" level="INFO">${Final_Payload} = {'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
+<var>${Final_Payload}</var>
+<arg>${Request}</arg>
+<arg>${payload_name}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-11-28T23:46:55.496773" elapsed="0.000136"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-11-28T23:46:55.497055" level="INFO">{'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
+<arg>${Final_Payload}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-11-28T23:46:55.496982" elapsed="0.000097"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-11-28T23:46:55.497272" level="INFO">${Final_Payload} = {'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
+<arg>${Final_Payload}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-11-28T23:46:55.497150" elapsed="0.000143"/>
+</kw>
+<arg>${payload}</arg>
+<arg>POST_DATA</arg>
+<status status="PASS" start="2025-11-28T23:46:55.495616" elapsed="0.001710"/>
+</kw>
+<kw name="Hitting/Execute POST Request And Fetch Response with valid Url" owner="CURD_KEYWORD">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-11-28T23:46:55.497693" level="INFO">Creating Session using : alias=demo, url=https://api.restful-api.dev/objects, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>demo</arg>
+<arg>${url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-11-28T23:46:55.497616" elapsed="0.000191"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<msg time="2025-11-28T23:46:55.497966" level="INFO">${payload} = {'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
+<var>${payload}</var>
+<arg>${Final_Payload}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-11-28T23:46:55.497876" elapsed="0.000102"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-11-28T23:47:00.277947" level="INFO">POST Request : url=https://api.restful-api.dev/objects 
+ path_url=/objects 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '130', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Apple MacBook Pro 16", "data": {"year": 2019, "price": 1849.99, "CPU model": "Intel Core i9", "Hard disk size": "1 TB"}}' 
+ </msg>
+<msg time="2025-11-28T23:47:00.278265" level="INFO">POST Response : url=https://api.restful-api.dev/objects 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 28 Nov 2025 18:17:00 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=ULE2i2HN%2ByD8VAM%2F2y%2F0IFILIkrbkQH%2FavCMrAg8kifTqhNihBVGOia1qWwJ4Fktu6oyRXEEMN9qKjGtZagy9GPF%2FVOZZOYprXtULzhgWWAz1QQ%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '9a5bdbf6f9c5787a-MRS', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":"ff8081819782e69e019acbaeb8d03371","name":"Apple MacBook Pro 16","createdAt":"2025-11-28T18:16:56.784+00:00","data":{"year":2019,"price":1849.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB"}} 
+ </msg>
+<msg time="2025-11-28T23:47:00.278421" level="INFO">/Users/chandramani/Testing Mac/.venv/lib/python3.9/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-11-28T23:47:00.278748" level="INFO">${post_response} = &lt;Response [200]&gt;</msg>
+<var>${post_response}</var>
+<arg>demo</arg>
+<arg>${url}</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-11-28T23:46:55.498043" elapsed="4.780754"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-11-28T23:47:00.280872" level="INFO">{'id': 'ff8081819782e69e019acbaeb8d03371', 'name': 'Apple MacBook Pro 16', 'createdAt': '2025-11-28T18:16:56.784+00:00', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
+<arg>${post_response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-11-28T23:47:00.279471" elapsed="0.001517"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-11-28T23:47:00.281803" level="INFO">${post_response} = &lt;Response [200]&gt;</msg>
+<arg>${post_response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-11-28T23:47:00.281324" elapsed="0.000583"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-11-28T23:47:00.283553" level="INFO">${id} = ff8081819782e69e019acbaeb8d03371</msg>
+<var>${id}</var>
+<arg>${post_response.json()}</arg>
+<arg>id</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-11-28T23:47:00.282258" elapsed="0.001344"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-11-28T23:47:00.284321" level="INFO">${ID} = ff8081819782e69e019acbaeb8d03371</msg>
+<arg>${ID}</arg>
+<arg>${id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-11-28T23:47:00.283916" elapsed="0.000481"/>
+</kw>
+<arg>${base_url}</arg>
+<status status="PASS" start="2025-11-28T23:46:55.497448" elapsed="4.787096"/>
+</kw>
+<kw name="Validation check from the responses body" owner="CURD_KEYWORD">
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2025-11-28T23:47:00.287511" level="INFO">${StatusCode} = 200</msg>
+<var>${StatusCode}</var>
+<arg>${Response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2025-11-28T23:47:00.286334" elapsed="0.001228"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${StatusCode}</arg>
+<arg>${Status_code}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-11-28T23:47:00.287815" elapsed="0.000363"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${StatusCode}</arg>
+<arg>${Status_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-11-28T23:47:00.288413" elapsed="0.000313"/>
+</kw>
+<arg>${post_response}</arg>
+<arg>200</arg>
+<status status="PASS" start="2025-11-28T23:47:00.285145" elapsed="0.003836"/>
+</kw>
+<doc>In ths request we are going to perform POST request in API Testing</doc>
+<status status="PASS" start="2025-11-28T23:46:55.495139" elapsed="4.794102"/>
+</test>
+<test id="s1-t2" name="TC 2 - Validate the resposes via GET request" line="15">
+<kw name="Hitting/Execute GET Request And Fetch Response with valid Url" owner="CURD_KEYWORD">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-11-28T23:47:00.291090" level="INFO">${get_url} = https://api.restful-api.dev/objects/ff8081819782e69e019acbaeb8d03371</msg>
+<var>${get_url}</var>
+<arg>${url}/${ID}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-11-28T23:47:00.290776" elapsed="0.000355"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-11-28T23:47:00.696722" level="INFO">GET Request : url=https://api.restful-api.dev/objects/ff8081819782e69e019acbaeb8d03371 
+ path_url=/objects/ff8081819782e69e019acbaeb8d03371 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-11-28T23:47:00.697029" level="INFO">GET Response : url=https://api.restful-api.dev/objects/ff8081819782e69e019acbaeb8d03371 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 28 Nov 2025 18:17:00 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=nMGm2s55%2BxSPWTdyd6%2FjTfepPj4L%2Bzl8ruV97eopLQjJYEsF0zs7tSVGAUhwN%2BIk8mqX42Ln9%2FUXrgso5X5KYhLyKCeylST3s%2FWBFLvo0ZhoFAE%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '9a5bdc118b6b787a-MRS', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":"ff8081819782e69e019acbaeb8d03371","name":"Apple MacBook Pro 16","data":{"year":2019,"price":1849.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB"}} 
+ </msg>
+<msg time="2025-11-28T23:47:00.697251" level="INFO">/Users/chandramani/Testing Mac/.venv/lib/python3.9/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-11-28T23:47:00.697616" level="INFO">${get_response} = &lt;Response [200]&gt;</msg>
+<var>${get_response}</var>
+<arg>demo</arg>
+<arg>${get_url}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-11-28T23:47:00.291335" elapsed="0.406349"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-11-28T23:47:00.701243" level="INFO">{'id': 'ff8081819782e69e019acbaeb8d03371', 'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
+<arg>${get_response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-11-28T23:47:00.698547" elapsed="0.002849"/>
+</kw>
+<arg>${base_url}</arg>
+<status status="PASS" start="2025-11-28T23:47:00.290285" elapsed="0.411429"/>
+</kw>
+<status status="PASS" start="2025-11-28T23:47:00.289605" elapsed="0.413229"/>
+</test>
+<test id="s1-t3" name="TC 3 - Validate the resposes via PUT request" line="18">
+<kw name="Creating the request payload" owner="CURD_KEYWORD">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-11-28T23:47:00.705637" level="INFO">${Request} = {'POST_DATA': {'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}, 'PATCH_DATA': {}}</msg>
+<var>${Request}</var>
+<arg>${request_json}</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-11-28T23:47:00.704996" elapsed="0.000700"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-11-28T23:47:00.706268" level="INFO">${Final_Payload} = {'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
+<var>${Final_Payload}</var>
+<arg>${Request}</arg>
+<arg>${payload_name}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-11-28T23:47:00.705920" elapsed="0.000388"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-11-28T23:47:00.706749" level="INFO">{'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
+<arg>${Final_Payload}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-11-28T23:47:00.706535" elapsed="0.000296"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-11-28T23:47:00.707432" level="INFO">${Final_Payload} = {'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
+<arg>${Final_Payload}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-11-28T23:47:00.707052" elapsed="0.000443"/>
+</kw>
+<arg>${payload}</arg>
+<arg>POST_DATA</arg>
+<status status="PASS" start="2025-11-28T23:47:00.704315" elapsed="0.003279"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${Final_payload ['data']}</arg>
+<arg>year=33333Nitka</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-11-28T23:47:00.707835" elapsed="0.000921"/>
+</kw>
+<kw name="Hitting/Execute PUT Request And Fetch Response with valid Url" owner="CURD_KEYWORD">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-11-28T23:47:00.709935" level="INFO">${put_url} = https://api.restful-api.dev/objects/ff8081819782e69e019acbaeb8d03371</msg>
+<var>${put_url}</var>
+<arg>${url}/${ID}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-11-28T23:47:00.709636" elapsed="0.000338"/>
+</kw>
+<kw name="PUT On Session" owner="RequestsLibrary">
+<msg time="2025-11-28T23:47:01.137824" level="INFO">PUT Request : url=https://api.restful-api.dev/objects/ff8081819782e69e019acbaeb8d03371 
+ path_url=/objects/ff8081819782e69e019acbaeb8d03371 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '138', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Apple MacBook Pro 16", "data": {"year": "33333Nitka", "price": 1849.99, "CPU model": "Intel Core i9", "Hard disk size": "1 TB"}}' 
+ </msg>
+<msg time="2025-11-28T23:47:01.138243" level="INFO">PUT Response : url=https://api.restful-api.dev/objects/ff8081819782e69e019acbaeb8d03371 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 28 Nov 2025 18:17:01 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=kqT%2ByJ9fDlQYKaOeDVSuD0nsmLtyP%2BE2fKfAlAoP2I9fPXNLQn3NOcqjhq%2FZntTCB54yNyGe8DWyFvwOpeB5uFlUoVMvQx0Wz7JvWmqvEWCIxcI%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '9a5bdc1419a2787a-MRS', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":"ff8081819782e69e019acbaeb8d03371","name":"Apple MacBook Pro 16","updatedAt":"2025-11-28T18:17:00.962+00:00","data":{"year":"33333Nitka","price":1849.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB"}} 
+ </msg>
+<msg time="2025-11-28T23:47:01.138716" level="INFO">/Users/chandramani/Testing Mac/.venv/lib/python3.9/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-11-28T23:47:01.139097" level="INFO">${put_response} = &lt;Response [200]&gt;</msg>
+<var>${put_response}</var>
+<arg>demo</arg>
+<arg>${put_url}</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-11-28T23:47:00.710171" elapsed="0.428991"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-11-28T23:47:01.141323" level="INFO">{'id': 'ff8081819782e69e019acbaeb8d03371', 'name': 'Apple MacBook Pro 16', 'updatedAt': '2025-11-28T18:17:00.962+00:00', 'data': {'year': '33333Nitka', 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
+<arg>${put_response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-11-28T23:47:01.139807" elapsed="0.001614"/>
+</kw>
+<arg>${base_url}</arg>
+<arg>${Final_payload}</arg>
+<status status="PASS" start="2025-11-28T23:47:00.709057" elapsed="0.432518"/>
+</kw>
+<kw name="Hitting/Execute GET Request And Fetch Response with valid Url" owner="CURD_KEYWORD">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-11-28T23:47:01.143088" level="INFO">${get_url} = https://api.restful-api.dev/objects/ff8081819782e69e019acbaeb8d03371</msg>
+<var>${get_url}</var>
+<arg>${url}/${ID}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-11-28T23:47:01.142780" elapsed="0.000350"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-11-28T23:47:01.550757" level="INFO">GET Request : url=https://api.restful-api.dev/objects/ff8081819782e69e019acbaeb8d03371 
+ path_url=/objects/ff8081819782e69e019acbaeb8d03371 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-11-28T23:47:01.551082" level="INFO">GET Response : url=https://api.restful-api.dev/objects/ff8081819782e69e019acbaeb8d03371 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 28 Nov 2025 18:17:01 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=SvZuGWllDjM4766wcABkYID8s6mMs86UKtN9Qnp7rQ31R7kv5OKAsM0%2FAGsVlYz47nQaS5YeDM%2FYXFbWreovUCFzB3aOT4vSwUk%2F2IcZAnWaj4I%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '9a5bdc16df7a787a-MRS', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"id":"ff8081819782e69e019acbaeb8d03371","name":"Apple MacBook Pro 16","data":{"year":"33333Nitka","price":1849.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB"}} 
+ </msg>
+<msg time="2025-11-28T23:47:01.551318" level="INFO">/Users/chandramani/Testing Mac/.venv/lib/python3.9/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-11-28T23:47:01.551639" level="INFO">${get_response} = &lt;Response [200]&gt;</msg>
+<var>${get_response}</var>
+<arg>demo</arg>
+<arg>${get_url}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-11-28T23:47:01.143322" elapsed="0.408363"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-11-28T23:47:01.553278" level="INFO">{'id': 'ff8081819782e69e019acbaeb8d03371', 'name': 'Apple MacBook Pro 16', 'data': {'year': '33333Nitka', 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
+<arg>${get_response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-11-28T23:47:01.552184" elapsed="0.001192"/>
+</kw>
+<arg>${base_url}</arg>
+<status status="PASS" start="2025-11-28T23:47:01.142099" elapsed="0.411410"/>
+</kw>
+<status status="PASS" start="2025-11-28T23:47:00.703411" elapsed="0.850410"/>
+</test>
+<test id="s1-t4" name="TC 4 - Validate the resposes via Delete request" line="24">
+<kw name="Creating the request payload" owner="CURD_KEYWORD">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-11-28T23:47:01.556434" level="INFO">${Request} = {'POST_DATA': {'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}, 'PATCH_DATA': {}}</msg>
+<var>${Request}</var>
+<arg>${request_json}</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-11-28T23:47:01.555577" elapsed="0.000908"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-11-28T23:47:01.557370" level="INFO">${Final_Payload} = {'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
+<var>${Final_Payload}</var>
+<arg>${Request}</arg>
+<arg>${payload_name}</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-11-28T23:47:01.556709" elapsed="0.000733"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-11-28T23:47:01.558472" level="INFO">{'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
+<arg>${Final_Payload}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-11-28T23:47:01.557785" elapsed="0.000788"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-11-28T23:47:01.559241" level="INFO">${Final_Payload} = {'name': 'Apple MacBook Pro 16', 'data': {'year': 2019, 'price': 1849.99, 'CPU model': 'Intel Core i9', 'Hard disk size': '1 TB'}}</msg>
+<arg>${Final_Payload}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-11-28T23:47:01.558841" elapsed="0.000469"/>
+</kw>
+<arg>${payload}</arg>
+<arg>POST_DATA</arg>
+<status status="PASS" start="2025-11-28T23:47:01.554949" elapsed="0.004478"/>
+</kw>
+<kw name="Hitting/Execute DELETE Request And Fetch Response with valid Url" owner="CURD_KEYWORD">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-11-28T23:47:01.560713" level="INFO">${del_url} = https://api.restful-api.dev/objects/ff8081819782e69e019acbaeb8d03371</msg>
+<var>${del_url}</var>
+<arg>${url}/${ID}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-11-28T23:47:01.560396" elapsed="0.000356"/>
+</kw>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-11-28T23:47:01.994699" level="INFO">DELETE Request : url=https://api.restful-api.dev/objects/ff8081819782e69e019acbaeb8d03371 
+ path_url=/objects/ff8081819782e69e019acbaeb8d03371 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '130', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Apple MacBook Pro 16", "data": {"year": 2019, "price": 1849.99, "CPU model": "Intel Core i9", "Hard disk size": "1 TB"}}' 
+ </msg>
+<msg time="2025-11-28T23:47:01.995147" level="INFO">DELETE Response : url=https://api.restful-api.dev/objects/ff8081819782e69e019acbaeb8d03371 
+ status=200, reason=OK 
+ headers={'Date': 'Fri, 28 Nov 2025 18:17:01 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Vary': 'Origin, Access-Control-Request-Method, Access-Control-Request-Headers', 'cf-cache-status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=AKBeBjXKFngkPBVg03a6LCg9XnckJYnjaSyMAEYyPsKy%2BuW66EZQBNqb59ABpB%2BsFKUG73IL4HAnCgOh7gxKFp8GiMj8KMUoel6sY15xWpTeMQA%3D"}]}', 'Content-Encoding': 'gzip', 'CF-RAY': '9a5bdc197d5f787a-MRS', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={"message":"Object with id = ff8081819782e69e019acbaeb8d03371 has been deleted."} 
+ </msg>
+<msg time="2025-11-28T23:47:01.995476" level="INFO">/Users/chandramani/Testing Mac/.venv/lib/python3.9/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.restful-api.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-11-28T23:47:01.995913" level="INFO">${del_response} = &lt;Response [200]&gt;</msg>
+<var>${del_response}</var>
+<arg>demo</arg>
+<arg>${del_url}</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-11-28T23:47:01.561062" elapsed="0.434915"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-11-28T23:47:01.997953" level="INFO">{'message': 'Object with id = ff8081819782e69e019acbaeb8d03371 has been deleted.'}</msg>
+<arg>${del_response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-11-28T23:47:01.996586" elapsed="0.001471"/>
+</kw>
+<arg>${base_url}</arg>
+<arg>${Final_payload}</arg>
+<status status="PASS" start="2025-11-28T23:47:01.559789" elapsed="0.438409"/>
+</kw>
+<status status="PASS" start="2025-11-28T23:47:01.554172" elapsed="0.444371"/>
+</test>
+<status status="PASS" start="2025-11-28T23:46:55.347528" elapsed="6.652010"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="CURD OPERATION">CURD OPERATION</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
